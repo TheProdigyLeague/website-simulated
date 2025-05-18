@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Text Adventure',
             description: 'Explore a wondrous world!',
             imageUrl: 'images/txtad.png', // Create this image
-            gameUrl: 'https://theprodigyleague.github.io/game/' // Path to the game's main HTML file
+            gameUrl: 'https://play.delaford.com/?useGuestAccount' // Path to the game's main HTML file
         },
         {
             id: 'game2',
