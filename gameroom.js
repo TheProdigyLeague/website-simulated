@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Turtle Shooter',
             description: 'Defend the galaxy from invaders.',
             imageUrl: 'images/turtshoot.png', // Create this image
-            gameUrl: 'https://www.andkon.com/arcade/missiledefender/spaceinvadersretro/#google_vignette' // Path to the game's main HTML file
+            gameUrl: 'https://www.youtube.com/playables/UgkxMYb8szzWt5VeS7WoQoXGi1NE6p3GWsYM' // Path to the game's main HTML file
         },
         {
             id: 'game3',
