@@ -31,6 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
             imageUrl: 'images/chess.png', // Create this image
             gameUrl: 'https://www.chess.com/play/computer' // Can also be an external URL
         },
+        {
+        id: 'game4',
+        title: 'Text Adventure',
+        description: 'No Socket Gaming/Coding Project.',
+        imageUrl: 'images/txtad.png',
+        gameUrl: 'https://theprodigyleague.github.io/game/'
+        }
         // Add more game objects here...
         // {
         //     id: 'yourGameId',
