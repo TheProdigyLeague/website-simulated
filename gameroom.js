@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const games = [
         {
             id: 'game1',
-            title: 'Text Adventure',
+            title: 'Role-Playing Game',
             description: 'Explore a wondrous world!',
-            imageUrl: 'images/txtad.png', // Create this image
+            imageUrl: 'images/delaford.png', // Create this image
             gameUrl: 'https://play.delaford.com/?useGuestAccount' // Path to the game's main HTML file
         },
         {
