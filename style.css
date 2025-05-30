@@ -54,15 +54,19 @@ header {
 }
 
 /* Mobile Navigation */
+/* Note: You have .mobile-nav defined twice. I'll keep the more detailed one
+   and ensure it's consistent. The one inside the @media query is for
+   showing/hiding the burger menu and desktop nav, which is correct. */
 .mobile-nav {
     display: none; /* Hidden by default */
     background-color: #333;
     color: white;
     position: absolute;
-    top: 100%; /* Positioned below the header */
+    top: 100%; /* Positioned below the header, assuming header height is covered */
+    /* If your header has a fixed height, e.g., 60px, you might use top: 60px; */
     left: 0;
     width: 100%;
-    z-index: 10; /* Ensure it's on top of other content */
+    z-index: 100; /* Ensure it's on top of other content */
 }
 
 .mobile-nav ul {
@@ -82,17 +86,47 @@ header {
     text-decoration: none;
 }
 
+/* Mobile Navigation Menu - When 'is-active' class is added by JavaScript */
+.mobile-nav.is-active {
+    display: block; /* Or flex, grid - whatever makes it visible and layout correctly */
+}
+
+
 main {
     padding: 20px;
 }
 
-section {
+section { /* General section styling */
     margin-bottom: 30px;
     padding: 20px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+/* Specific styling for the hero section if needed */
+#hero {
+    text-align: center; /* Center the text within the hero section */
+    background-color: #f4f4f4; /* Match body or make it transparent if desired */
+    box-shadow: none; /* Remove box shadow if you don't want it for the hero */
+    padding-top: 40px; /* Add some top padding */
+    padding-bottom: 40px; /* Add some bottom padding */
+}
+#hero-logo {
+    display: block; /* Makes margin auto work for centering if needed, and allows setting top/bottom margins */
+    margin-left: auto;
+    margin-right: auto; /* Centers the image if its parent is text-align: center */
+    max-width: 300px;   /* Example: Set a maximum width for the logo */
+    height: auto;       /* Maintain aspect ratio */
+    margin-bottom: 1rem; /* Space between the logo and the slogan */
+    /* Add any other styles like border, box-shadow if desired */
+}
+#hero h1 {
+    margin-bottom: 0.5rem; /* Space between H1 and slogan */
+    font-size: 2.5em; /* Make H1 larger */
+    color: #333; /* Ensure H1 color is set if not inherited properly */
+}
+
 
 footer {
     text-align: center;
@@ -101,16 +135,6 @@ footer {
     color: white;
 }
 
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-    .desktop-nav {
-        display: none; /* Hide desktop nav on smaller screens */
-    }
-
-    .burger-menu {
-        display: flex; /* Show burger menu on smaller screens */
-    }
-}
 /* Basic Chatroom Styling */
 .chat-container {
     border: 1px solid #ccc;
@@ -186,33 +210,46 @@ footer {
 .bot-message {
     background-color: #e8f5e9; /* Light green background for bot messages */
 }
-/* Mobile Navigation Menu - Initially Hidden */
-.mobile-nav {
-    display: none; /* Or visibility: hidden; opacity: 0; etc. */
-    /* Add other essential styles like background, position, width, height */
-    background-color: #333; /* Example */
-    color: white; /* Example */
-    position: absolute; /* Or fixed */
-    top: 60px; /* Example: below a header */
-    left: 0;
-    width: 100%;
-    z-index: 100; /* Ensure it can appear on top of other content */
+
+/* =============================================== */
+/* === RAINBOW SHIMMER ANIMATION FOR .SLOGAN === */
+/* =============================================== */
+
+.slogan {
+    font-size: 2.2em;   /* Adjust size as needed */
+    font-weight: bold;
+    margin-top: 0.5rem; /* Space above the slogan */
+    margin-bottom: 2rem;/* Space below the slogan */
+
+    background-image: linear-gradient(
+        to right,
+        #FF00FF, /* Magenta */
+        #0000FF, /* Blue */
+        #00FF00, /* Lime Green */
+        #FFFF00, /* Yellow */
+        #FF7F00, /* Orange */
+        #FF0000, /* Red */
+        #FF00FF  /* Magenta again for a smooth animation loop */
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    background-size: 400% 100%;
+
+    animation-name: rainbow-shimmer-animation;
+    animation-duration: 6s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
-/* Mobile Navigation Menu - When 'is-active' class is added by JavaScript */
-.mobile-nav.is-active {
-    display: block; /* Or flex, grid - whatever makes it visible and layout correctly */
-}
-
-/* Ensure the burger menu itself is visible on mobile (from your existing CSS) */
-@media (max-width: 768px) { /* Your mobile breakpoint */
-    .burger-menu {
-        display: flex; /* Or block - makes the burger icon visible */
-        cursor: pointer; /* Indicates it's clickable */
-        z-index: 101; /* Above the mobile-nav if they could overlap */
+@keyframes rainbow-shimmer-animation {
+    0% {
+        background-position: 0% 50%;
     }
-    /* You'd also typically hide your .desktop-nav here */
-    .desktop-nav {
-        display: none;
+    100% {
+        background-position: 100% 50%;
     }
 }
