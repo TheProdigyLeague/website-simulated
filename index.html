@@ -1,96 +1,88 @@
-    <html lang="en"><head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TheProdigyLeague</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-    <header>
-        <div class="logo">TheProdigyLeague</div>
-        <nav class="desktop-nav">
-            <ul>
-                <li><a href="#" id="openChatroomLink">Chatroom</a></li>
-                <li><a href="#" id="openGameroomLink">Game Room</a></li>
-                <li><a href="blogfeed.html" id="openBlogfeedLink">Blog</a></li>
-            </ul>
-        </nav>
-        <div class="burger-menu">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <nav class="mobile-nav">
-            <ul>
-                <li><a href="#" id="openMobileChatroomLink">Chatroom</a></li>
-                <li><a href="#" id="openMobileGameroomLink">Game Room</a></li>
-                <li><a href="blogfeed.html" id="openMobileBlogfeedLink">Blog</a></li>
-            </ul>
-        </nav>
-    </header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheProdigyLeague</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div class="logo">TheProdigyLeague</div>
+    <nav class="desktop-nav">
+        <ul>
+            <!-- These links will now primarily be handled by JavaScript to show/hide content
+                 or navigate, rather than linking to sections on this page. -->
+            <li><a href="#" id="openChatroomLink">Chatroom</a></li>
+            <li><a href="#" id="openGameroomLink">Game Room</a></li>
+            <li><a href="blogfeed.html" id="openBlogfeedLink">Blog</a></li>
+        </ul>
+    </nav>
+    <div class="burger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <nav class="mobile-nav">
+        <ul>
+            <li><a href="#" id="openMobileChatroomLink">Chatroom</a></li>
+            <li><a href="#" id="openMobileGameroomLink">Game Room</a></li>
+            <li><a href="blogfeed.html" id="openMobileBlogfeedLink">Blog</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <main>
-        <section id="hero">
-            <h1>Welcome to TheProdigyLeague!</h1>
-            <p>Explore our exciting features.</p>
-        </section>
+<main>
+    <section id="hero">
+        <!-- Replace H1 text with an img tag for the logo -->
+        <img src="images/logo.png" alt="TheProdigyLeague Logo" id="hero-logo">
+        <p class="slogan">Gaming and Coding.</p>
+    </section>
+    <!-- ... other sections ... -->
+</main>
+<footer>
+    <p>© 2025 TheProdigyLeague</p>
+</footer>
 
-        <section id="chatroom">
-            <h2>Chatroom</h2>
-            <p>Where the bots are chatting...</p>
+<script src="script.js"></script>
 
-        </section>
-
-        <section id="gameroom">
-            <h2>Game Room</h2>
-            <p>Get ready to play some games!</p>
-        </section>
-
-        <section id="blog">
-            <h2>Blog Feed</h2>
-            <p>Latest updates and thoughts...</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2025 TheProdigyLeague</p>
-    </footer>
-
-    <script src="script.js"></script>
-
-    <script>
-        (function() {
-          var ws = new WebSocket('ws://' + window.location.host +
-                     '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
-                     'referrer=' + encodeURIComponent(window.location.pathname));
-          ws.onmessage = function (msg) {
-              if (msg.data === 'reload') {
-                  window.location.reload();
-              }
-              if (msg.data.startsWith('update-css ')) {
-                  var messageId = msg.data.substring(11);
-                  var links = document.getElementsByTagName('link');
-                  for (var i = 0; i < links.length; i++) {
-                      var link = links[i];
-                      if (link.rel !== 'stylesheet') continue;
-                      var clonedLink = link.cloneNode(true);
-                      var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
-                      if (newHref !== link.href) {
-                        clonedLink.href = newHref;
-                      }
-                      else {
-                        var indexOfQuest = newHref.indexOf('?');
-                        if (indexOfQuest >= 0) {
-                          // to support ?foo#hash
-                          clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' +
-                                            newHref.substring(indexOfQuest + 1);
-                        }
-                        else {
-                          clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
-                        }
-                      }
-                      link.replaceWith(clonedLink);
+<!-- Your existing WebSocket script for live reload -->
+<script>
+    (function() {
+      var ws = new WebSocket('ws://' + window.location.host +
+                 '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
+                 'referrer=' + encodeURIComponent(window.location.pathname));
+      ws.onmessage = function (msg) {
+          if (msg.data === 'reload') {
+              window.location.reload();
+          }
+          if (msg.data.startsWith('update-css ')) {
+              var messageId = msg.data.substring(11);
+              var links = document.getElementsByTagName('link');
+              for (var i = 0; i < links.length; i++) {
+                  var link = links[i];
+                  if (link.rel !== 'stylesheet') continue;
+                  var clonedLink = link.cloneNode(true);
+                  var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
+                  if (newHref !== link.href) {
+                    clonedLink.href = newHref;
                   }
+                  else {
+                    var indexOfQuest = newHref.indexOf('?');
+                    if (indexOfQuest >= 0) {
+                      // to support ?foo#hash
+                      clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' +
+                                        newHref.substring(indexOfQuest + 1);
+                    }
+                    else {
+                      clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
+                    }
+                  }
+                  link.replaceWith(clonedLink);
               }
-          };
-        })();
-    </script></body></html>
+          }
+      };
+    })();
+</script>
+</body>
+</html>
