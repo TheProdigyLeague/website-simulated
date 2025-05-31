@@ -37,6 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
         description: 'No Socket Gaming/Coding Project.',
         imageUrl: 'images/txtad.png',
         gameUrl: 'https://theprodigyleague.github.io/game/'
+        },
+        {
+        id: 'game5',
+        title: 'twoDimensionalArray',
+        description: 'Stickpage.com',
+        imageUrl: 'images/jasonwhitman-brockwhite.png',
+        gameUrl: 'https://www.crazygames.com/game/stick-war'
         }
         // Add more game objects here...
         // {
