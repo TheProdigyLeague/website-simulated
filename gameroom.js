@@ -32,18 +32,25 @@ document.addEventListener('DOMContentLoaded', () => {
             gameUrl: 'https://www.chess.com/play/computer' // Can also be an external URL
         },
         {
-        id: 'game4',
-        title: 'Text Adventure',
-        description: 'No Socket Gaming/Coding Project.',
-        imageUrl: 'images/txtad.png',
-        gameUrl: 'https://theprodigyleague.github.io/game/'
+            id: 'game4',
+            title: 'Text Adventure',
+            description: 'No Socket Gaming/Coding Project.',
+            imageUrl: 'images/txtad.png',
+            gameUrl: 'https://theprodigyleague.github.io/game/'
         },
         {
-        id: 'game5',
-        title: 'twoDimensionalArray',
-        description: 'Stickpage.com',
-        imageUrl: 'images/jasonwhitman-brockwhite.png',
-        gameUrl: 'https://www.crazygames.com/game/stick-war'
+            id: 'game5',
+            title: 'twoDimensionalArray',
+            description: 'Stickpage.com',
+            imageUrl: 'images/jasonwhitman-brockwhite.png',
+            gameUrl: 'https://www.crazygames.com/game/stick-war'
+        },
+        {
+            id: 'game6',
+            title: 'Conquest Simulator',
+            description: 'Interactive Map.',
+            imageUrl: 'images/oldkingdomoldworld.png',
+            gameUrl: ' https://theprodigyleague.github.io/g4m3/'
         }
         // Add more game objects here...
         // {
