@@ -1,9 +1,10 @@
+html, body {
+    height: 100%;
+}
 body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -94,6 +95,7 @@ header {
 
 main {
     padding: 20px;
+    flex: 1;
 }
 
 section { /* General section styling */
@@ -133,6 +135,7 @@ footer {
     padding: 1em;
     background-color: #333;
     color: white;
+    margin-top: auto;
 }
 
 /* Basic Chatroom Styling */
@@ -251,5 +254,112 @@ footer {
     }
     100% {
         background-position: 100% 50%;
+    }
+}
+.role-icon {
+    margin-right: 2px;
+    vertical-align: middle;
+    font-size: 1em;
+}
+.stock-ticker {
+    margin: 1.5em auto 0 auto;
+    max-width: 600px;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+    font-family: monospace;
+    font-size: 1.1em;
+    color: #222;
+    background: #f1f1f1;
+    border-radius: 6px;
+    padding: 0.5em 1em;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+
+.ticker-inner {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%; /* Start off-screen to the right */
+    animation: ticker-scroll-panel 20s linear infinite;
+}
+
+@keyframes ticker-scroll-panel {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.stock-ticker span {
+    display: inline-block;
+    /* Remove animation from individual spans */
+    animation: none;
+}
+.ticker-symbol {
+    font-weight: bold;
+    color: #007bff;
+}
+.ticker-price {
+    color: #388e3c;
+}
+@media (max-width: 600px) {
+    .stock-ticker {
+        font-size: 0.95em;
+        padding: 0.5em;
+    }
+}
+.news-ticker {
+    margin: 0.5em auto 0 auto;
+    max-width: 600px;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+    font-family: monospace;
+    font-size: 1.05em;
+    color: #1a237e;
+    background: #e3e8ff;
+    border-radius: 6px;
+    padding: 0.5em 1em;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+
+.news-ticker .ticker-inner {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: ticker-scroll-news 28s linear infinite;
+}
+
+@keyframes ticker-scroll-news {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.news-ticker span {
+    display: inline-block;
+    animation: none;
+}
+
+/* Show burger menu and hide desktop nav on small screens */
+@media (max-width: 900px) {
+    .desktop-nav {
+        display: none;
+    }
+    .burger-menu {
+        display: flex;
+    }
+    .mobile-nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+    .mobile-nav.is-active {
+        display: block;
     }
 }

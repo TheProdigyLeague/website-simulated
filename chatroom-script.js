@@ -5,16 +5,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const usernameDisplay = document.getElementById('usernameDisplay'); // Assume this is set elsewhere with the user's name
 
     // --- Bot Configuration ---
+    function getRandomUserName() {
+        return "User" + Math.floor(100 + Math.random() * 900);
+    }
+
     const bots = [
         {
-            name: "ChattyCathy",
+            name: getRandomUserName(),
+            color: "#7289da", // Discord mod blue
+            icon: "👑", // Crown modal
+            greetings: [
+                "Moderator present. Please adhere to the rules.",
+                "Mod here. Keep it respectful.",
+                "Order will be maintained in this chat."
+            ],
+            randomChatter: [
+                "This is your only warning. No spamming.",
+                "Infractions will not be tolerated.",
+                "Chat is being monitored at all times.",
+                "Please refrain from using inappropriate language.",
+                "Rules are not suggestions. Follow them."
+            ]
+        },
+        {
+            name: getRandomUserName(),
             color: "purple",
-            greetings: [ // Messages to say when first "entering"
+            greetings: [
                 "Hey everyone! What's up?",
                 "Hello there! Nice to see you all.",
                 "Welcome to the chat! Hope you're having a good day.",
             ],
-            randomChatter: [ // Messages for ongoing chatter
+            randomChatter: [
                 "I just had the best virtual coffee!",
                 "Thinking about what to watch tonight...",
                 "The weather simulation is lovely today, isn't it?",
@@ -24,8 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            name: "InfoBot",
-            color: "dodgerblue", // Changed color for better visibility
+            name: getRandomUserName(),
+            color: "dodgerblue",
             greetings: [
                 "Greetings. I am InfoBot. Systems online.",
                 "Welcome. All channels open.",
@@ -39,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            name: "EmojiMaster",
+            name: getRandomUserName(),
             color: "orange",
             greetings: ["👋🎉🥳", "Hello with emojis!"],
             randomChatter: [
@@ -50,26 +71,51 @@ document.addEventListener('DOMContentLoaded', () => {
                 "😂🤣😂",
                 "Just emojing around! 😜",
             ]
+        },
+        {
+            name: getRandomUserName(),
+            color: "#e91e63", // Drama/gossip color
+            greetings: [
+                "Did you hear what happened yesterday?",
+                "Oh wow, you won't believe this...",
+                "Spilling some tea as I join!",
+            ],
+            randomChatter: [
+                "I heard someone got banned last night 👀",
+                "Rumor has it, there's a secret channel...",
+                "Not saying names, but someone here is always lurking.",
+                "Drama alert! Who started the emoji war?",
+                "I can't believe what just happened in the other chatroom!",
+                "So much tea, not enough cups ☕",
+            ]
         }
-        // Add more bots or customize as needed
     ];
 
     // Function to add a message to the chat list
-    function addMessageToChat(sender, text, isUserMessage, botColor = null) {
+    function addMessageToChat(sender, text, isUserMessage, botColor = null, icon = null) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message');
 
         const senderSpan = document.createElement('span');
         senderSpan.classList.add('sender');
-        senderSpan.textContent = sender + ":";
+
+        // Add icon if present
+        if (icon) {
+            const iconSpan = document.createElement('span');
+            iconSpan.classList.add('role-icon');
+            iconSpan.textContent = icon;
+            senderSpan.appendChild(iconSpan);
+            senderSpan.appendChild(document.createTextNode(" "));
+        }
+
+        senderSpan.appendChild(document.createTextNode(sender + ":"));
 
         if (isUserMessage) {
-            messageDiv.classList.add('user-message'); // Use a more specific class for user
-            // Assuming usernameDisplay might have a color style from elsewhere
-            senderSpan.style.color = usernameDisplay.style.color || '#333'; // Default user color
+            messageDiv.classList.add('user-message');
+            senderSpan.style.color = usernameDisplay.style.color || '#333';
         } else {
             messageDiv.classList.add('bot-message');
-            senderSpan.style.color = botColor || 'green'; // Default bot color if not specified
+            senderSpan.style.color = botColor || 'green';
         }
 
         const textSpan = document.createElement('span');
@@ -134,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (messageText) {
-            addMessageToChat(bot.name, messageText, false, bot.color);
+            addMessageToChat(bot.name, messageText, false, bot.color, bot.icon || null);
         }
     }
 
