@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'game4',
             title: 'Picture Game',
             description: 'Choose your own adventure!',
-            imageURL: 'images/cardgame.png',
+            imageURL: 'images/picturegame.png',
             gameURL: ' https://theprodigyleague.github.io/pictureGame/'
         },
         {
