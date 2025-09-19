@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'game6',
             title: 'H&C',
             description: 'Heroes & Champions',
-            imageURL: 'images/picturegame.png',
+            imageURL: 'images/cardgame.png',
             gameURL: 'https://theprodigyleague.github.io/cardGame/'
         }
         
