@@ -12,46 +12,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const games = [
         {
             id: 'game1',
-            title: 'Role-Playing Game',
-            description: 'Explore a wondrous world!',
-            imageUrl: 'images/delaford.png', // Create this image
-            gameUrl: 'https://play.delaford.com/?useGuestAccount' // Path to the game's main HTML file
-        },
-        {
-            id: 'game2',
-            title: 'Turtle Shooter',
-            description: 'Defend the galaxy from invaders.',
-            imageUrl: 'images/turtshoot.png', // Create this image
-            gameUrl: 'https://www.youtube.com/playables/UgkxMYb8szzWt5VeS7WoQoXGi1NE6p3GWsYM' // Path to the game's main HTML file
-        },
-        {
-            id: 'game3',
-            title: 'Chess',
-            description: 'Challenge your brain with tricky puzzles.',
-            imageUrl: 'images/chess.png', // Create this image
-            gameUrl: 'https://www.chess.com/play/computer' // Can also be an external URL
-        },
-        {
-            id: 'game4',
             title: 'Text Adventure',
-            description: 'No Socket Gaming/Coding Project.',
+            description: 'No Socks Gaming..',
             imageUrl: 'images/txtad.png',
             gameUrl: 'https://theprodigyleague.github.io/game/'
         },
         {
-            id: 'game5',
-            title: 'twoDimensionalArray',
-            description: 'Stickpage.com',
-            imageUrl: 'images/jasonwhitman-brockwhite.png',
-            gameUrl: 'https://www.crazygames.com/game/stick-war'
-        },
-        {
-            id: 'game6',
+            id: 'game2',
             title: 'Conquest Simulator',
-            description: 'Interactive Map.',
+            description: 'Interactive Map...',
             imageUrl: 'images/oldkingdomoldworld.png',
             gameUrl: ' https://theprodigyleague.github.io/g4m3/'
+        },
+        {
+            id: 'game3',
+            title: 'Chess Mod',
+            description: 'Modulus Chess....',
+            imageUrl: 'images/chess.png', // Create this image
+            gameUrl: 'https://theprodigyleague.github.io/gameMockChess' // Can also be an external URL
+        },
+        {
+            id: 'game4',
+            title: 'Picture Game',
+            description: 'Choose your own adventure!',
+            imageURL: 'images/cardgame.png',
+            gameURL: ' https://theprodigyleague.github.io/pictureGame/'
+        },
+        {
+            id: 'game5',
+            title: 'In-game Lobby',
+            description: 'Microtransactions!!',
+            iamgeURL: 'images/lobbysim.png',
+            gameURL: 'https://theprodigyleague.github.io/codespaces-mockGame/',
         }
+        
         // Add more game objects here...
         // {
         //     id: 'yourGameId',
