@@ -35,22 +35,22 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'game4',
             title: 'Picture Game',
             description: 'Choose your own adventure!',
-            imageURL: 'images/picturegame.png',
-            gameURL: 'https://theprodigyleague.github.io/pictureGame/'
+            imageUrl: 'images/picturegame.png',
+            gameUrl: 'https://theprodigyleague.github.io/pictureGame/'
         },
         {
             id: 'game5',
             title: 'In-game Lobby',
             description: 'Microtransactions!!',
-            imageURL: 'images/lobbysim.png',
-            gameURL: 'https://theprodigyleague.github.io/codespaces-mockGame/',
+            imageUrl: 'images/lobbysim.png',
+            gameUrl: 'https://theprodigyleague.github.io/codespaces-mockGame/',
         },
         {
             id: 'game6',
             title: 'H&C',
             description: 'Heroes & Champions',
-            imageURL: 'images/cardgame.png',
-            gameURL: 'https://theprodigyleague.github.io/cardGame/'
+            imageUrl: 'images/cardgame.png',
+            gameUrl: 'https://theprodigyleague.github.io/cardGame/'
         }
         
         // Add more game objects here...
