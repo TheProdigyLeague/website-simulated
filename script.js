@@ -102,32 +102,75 @@ document.addEventListener('DOMContentLoaded', () => {
         openGameroomLinkMobile.addEventListener('click', openGameWindow);
     }
 });
-// --- NEW: LOST STORIES GALLERY INTERACTIVITY ---
-const storyBlocks = document.querySelectorAll('.story-block');
-const artPieces = document.querySelectorAll('.art-piece');
-const galleryPanel = document.querySelector('.gallery-panel');
+// --- NEW: LOST STORIES GALLERY INTERACTIVITY (Icon-Based View) ---
+document.addEventListener('DOMContentLoaded', () => {
+    // ... (Existing DOMContentLoaded content) ...
 
-storyBlocks.forEach(block => {
-    block.addEventListener('click', function() {
-        // 1. Determine the ID of the story clicked (e.g., "xegnoid")
-        const targetStoryId = this.getAttribute('data-story-id');
+    const iconToggleBtns = document.querySelectorAll('.icon-toggle-btn');
+    const writingsView = document.getElementById('writings-content-view');
+    const artView = document.getElementById('art-content-view');
+    const storyBlocks = document.querySelectorAll('.story-block');
+    const artPieces = document.querySelectorAll('.art-piece');
 
-        // 2. Remove 'is-active' class from all art pieces
-        artPieces.forEach(art => {
-            art.classList.remove('is-active');
-        });
+    function toggleContentView(targetId) {
+        // Hide/deactivate all elements
+        writingsView.classList.add('is-hidden');
+        artView.classList.add('is-hidden');
+        iconToggleBtns.forEach(btn => btn.classList.remove('active'));
 
-        // 3. Find the matching art piece and activate it
-        const targetArt = document.querySelector(`.art-piece[data-story-id="${targetStoryId}"]`);
-        if (targetArt) {
-            targetArt.classList.add('is-active');
+        // Show/activate the target
+        const targetView = document.getElementById(`${targetId}-content-view`);
+        const targetBtn = document.querySelector(`.icon-toggle-btn[data-target="${targetId}"]`);
 
-            // 4. Scroll the Gallery Panel to the highlighted art piece
-            if (galleryPanel) {
-                // Scroll the *container* to make the *element* visible
-                // Calculation: Target Top - Container Top + Container Scroll Position (to account for current scroll) - 20px margin
-                galleryPanel.scrollTop = targetArt.offsetTop - galleryPanel.offsetTop + galleryPanel.scrollTop - 20;
-            }
+        if (targetView) {
+            targetView.classList.remove('is-hidden');
+            targetBtn.classList.add('active');
+            window.scrollTo({ top: targetView.offsetTop, behavior: 'smooth' }); // Scrolls to the content area
         }
+    }
+
+    // Set 'writings' as default active view on load
+    if (writingsView && artView) {
+         // Initialize: writings should be visible, art hidden
+        writingsView.classList.remove('is-hidden');
+        artView.classList.add('is-hidden');
+        document.querySelector('.icon-toggle-btn[data-target="writings"]').classList.add('active');
+    }
+
+
+    // 1. Add listeners to the icons to toggle the views
+    iconToggleBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const targetViewId = this.getAttribute('data-target');
+            toggleContentView(targetViewId);
+
+            // On view switch, clear previous highlights in the art gallery
+            artPieces.forEach(art => art.classList.remove('is-active'));
+        });
+    });
+
+    // 2. Click-to-highlight logic: Click a story to show and highlight the art piece
+    storyBlocks.forEach(block => {
+        block.addEventListener('click', function() {
+            const targetStoryId = this.getAttribute('data-story-id');
+
+            // 2a. Switch the view to the Art Gallery
+            toggleContentView('art');
+
+            // 2b. Remove 'is-active' class from all art pieces
+            artPieces.forEach(art => {
+                art.classList.remove('is-active');
+            });
+
+            // 2c. Find the matching art piece and activate it
+            const targetArt = document.querySelector(`#art-content-view .art-piece[data-story-id="${targetStoryId}"]`);
+
+            if (targetArt) {
+                targetArt.classList.add('is-active');
+
+                // 2d. Scroll the Art View to the highlighted art piece
+                targetArt.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
     });
 });
