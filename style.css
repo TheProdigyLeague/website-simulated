@@ -363,3 +363,81 @@ footer {
         display: block;
     }
 }
+/* --- NEW: TWO-PANEL GALLERY LAYOUT FOR RECOVERED WORKS --- */
+#lost-stories-gallery {
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.two-panel-container {
+    display: flex;
+    gap: 30px; /* Space between the two panels */
+    margin-top: 20px;
+}
+
+.writings-panel, .gallery-panel {
+    flex: 1; /* Both panels take up equal space */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    max-height: 800px; /* Constrain height to keep panels manageable */
+    overflow-y: auto; /* Allow scrolling within the panel */
+}
+
+/* Style for individual story blocks (clickable areas) */
+.story-block {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f7f7f7;
+    border-radius: 6px;
+    border-left: 5px solid #ff00ff; /* Magenta line for The Prodigy League theme */
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.story-block:hover {
+    background-color: #ffe6ff; /* Light magenta hover */
+    box-shadow: 0 2px 8px rgba(255, 0, 255, 0.1);
+}
+
+.story-title {
+    margin-top: 0;
+    color: #ff00ff;
+    font-size: 1.15em;
+}
+
+/* Style for individual art pieces */
+.art-piece {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    opacity: 0.4; /* Default state: Faded */
+    transition: opacity 0.3s, box-shadow 0.3s;
+}
+
+.art-piece img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+/* Class added by JavaScript to highlight the active art piece */
+.art-piece.is-active {
+    opacity: 1; /* Fully visible */
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.8); /* Blue glow highlight */
+    border-color: #007bff;
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 900px) {
+    .two-panel-container {
+        flex-direction: column; /* Stacks panels vertically */
+    }
+    .writings-panel, .gallery-panel {
+        max-height: none; /* Remove max height constraint on mobile */
+    }
+}
