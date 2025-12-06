@@ -363,81 +363,66 @@ footer {
         display: block;
     }
 }
-/* --- NEW: TWO-PANEL GALLERY LAYOUT FOR RECOVERED WORKS --- */
-#lost-stories-gallery {
-    padding: 20px;
-    margin-bottom: 30px;
-}
-
-.two-panel-container {
+/* --- NEW: ICON SELECTION PANEL --- */
+.icon-selection-panel {
     display: flex;
-    gap: 30px; /* Space between the two panels */
-    margin-top: 20px;
+    justify-content: center;
+    gap: 50px;
+    margin: 30px 0;
 }
 
-.writings-panel, .gallery-panel {
-    flex: 1; /* Both panels take up equal space */
-    padding: 20px;
-    border: 1px solid #ddd;
+.icon-toggle-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333; /* Default text color */
+    transition: color 0.3s;
+    padding: 10px;
     border-radius: 8px;
-    background-color: #fff;
-    max-height: 800px; /* Constrain height to keep panels manageable */
-    overflow-y: auto; /* Allow scrolling within the panel */
 }
 
-/* Style for individual story blocks (clickable areas) */
+.icon-toggle-btn.active,
+.icon-toggle-btn:hover {
+    color: #ff00ff; /* The Prodigy League magenta color */
+}
+
+.icon-toggle-btn p {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.book-icon {
+    stroke: currentColor;
+    fill: none;
+    transition: all 0.3s;
+}
+
+.icon-toggle-btn.active .book-icon {
+    stroke: #ff00ff;
+}
+
+/* --- NEW: FULL CONTENT VIEWS (Click-to-View) --- */
+.content-view {
+    padding: 30px;
+    border: 1px solid #ff00ff;
+    border-radius: 8px;
+    background-color: #fcfcfc;
+}
+
+.is-hidden {
+    display: none !important;
+}
+
+/* Ensure story blocks are still clickable for the cross-panel view experience */
 .story-block {
     padding: 15px;
     margin-bottom: 10px;
     background-color: #f7f7f7;
     border-radius: 6px;
-    border-left: 5px solid #ff00ff; /* Magenta line for The Prodigy League theme */
+    border-left: 5px solid #ff00ff;
     cursor: pointer;
     transition: background-color 0.2s, box-shadow 0.2s;
-}
-
-.story-block:hover {
-    background-color: #ffe6ff; /* Light magenta hover */
-    box-shadow: 0 2px 8px rgba(255, 0, 255, 0.1);
-}
-
-.story-title {
-    margin-top: 0;
-    color: #ff00ff;
-    font-size: 1.15em;
-}
-
-/* Style for individual art pieces */
-.art-piece {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background-color: #fff;
-    opacity: 0.4; /* Default state: Faded */
-    transition: opacity 0.3s, box-shadow 0.3s;
-}
-
-.art-piece img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 4px;
-}
-
-/* Class added by JavaScript to highlight the active art piece */
-.art-piece.is-active {
-    opacity: 1; /* Fully visible */
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.8); /* Blue glow highlight */
-    border-color: #007bff;
-}
-
-/* Responsive adjustment for small screens */
-@media (max-width: 900px) {
-    .two-panel-container {
-        flex-direction: column; /* Stacks panels vertically */
-    }
-    .writings-panel, .gallery-panel {
-        max-height: none; /* Remove max height constraint on mobile */
-    }
 }
