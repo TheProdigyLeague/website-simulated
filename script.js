@@ -102,3 +102,32 @@ document.addEventListener('DOMContentLoaded', () => {
         openGameroomLinkMobile.addEventListener('click', openGameWindow);
     }
 });
+// --- NEW: LOST STORIES GALLERY INTERACTIVITY ---
+const storyBlocks = document.querySelectorAll('.story-block');
+const artPieces = document.querySelectorAll('.art-piece');
+const galleryPanel = document.querySelector('.gallery-panel');
+
+storyBlocks.forEach(block => {
+    block.addEventListener('click', function() {
+        // 1. Determine the ID of the story clicked (e.g., "xegnoid")
+        const targetStoryId = this.getAttribute('data-story-id');
+
+        // 2. Remove 'is-active' class from all art pieces
+        artPieces.forEach(art => {
+            art.classList.remove('is-active');
+        });
+
+        // 3. Find the matching art piece and activate it
+        const targetArt = document.querySelector(`.art-piece[data-story-id="${targetStoryId}"]`);
+        if (targetArt) {
+            targetArt.classList.add('is-active');
+
+            // 4. Scroll the Gallery Panel to the highlighted art piece
+            if (galleryPanel) {
+                // Scroll the *container* to make the *element* visible
+                // Calculation: Target Top - Container Top + Container Scroll Position (to account for current scroll) - 20px margin
+                galleryPanel.scrollTop = targetArt.offsetTop - galleryPanel.offsetTop + galleryPanel.scrollTop - 20;
+            }
+        }
+    });
+});
