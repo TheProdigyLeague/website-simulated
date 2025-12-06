@@ -61,70 +61,86 @@
         </div>
     </section>
     <section id="lost-stories-gallery">
-        <h2>Recovered Works: From Imagination to Art</h2>
-        <p class="intro">Explore the history and imagination behind The Prodigy League's artwork. Click a story title to view the corresponding concept art and visualize the effort put into a kid's imagination.</p>
+        <h2>Recovered Works: The Archives</h2>
+        <p class="intro">Click an icon below to access the forgotten writings or the conceptual art gallery.</p>
 
-        <div class="two-panel-container">
-            <div class="writings-panel">
-                <h3>The Story Archives</h3>
+        <div class="icon-selection-panel">
+            <button class="icon-toggle-btn active" data-target="writings">
+                <svg class="book-icon" id="journal-icon" width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 2H19C19.5523 2 20 2.44772 20 3V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V3C4 2.44772 4.44772 2 5 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 2C10.8954 2 10 2.89543 10 4V20C10 21.1046 10.8954 22 12 22C13.1046 22 14 21.1046 14 20V4C14 2.89543 13.1046 2 12 2Z" fill="#CCC" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7 6H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7 10H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7 14H12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p>Story Archives</p>
+            </button>
 
-                <article class="story-block" data-story-id="xegnoid">
-                    <h4 class="story-title">1. The Xegnoid Saga (3 Nations, 3 Wars)</h4>
-                    <p>A sci-fi fantasy epic featuring four nations (Din Din, Foo Fee Boo, Big Heads, Oronesians) on the Pangea-inspired planet Xegnoid. [See Map]</p>
-                </article>
+            <button class="icon-toggle-btn" data-target="art">
+                <svg class="book-icon" id="sketchbook-icon" width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 2H7C5.89543 2 5 2.89543 5 4V20C5 21.1046 5.89543 22 7 22H21C22.1046 22 23 21.1046 23 20V4C23 2.89543 22.1046 2 21 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 4H5V20H3C2.44772 20 2 19.5523 2 19V5C2 4.44772 2.44772 4 3 4Z" fill="#F0F0F0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 8H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 12H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M11 16H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="9" cy="16" r="1" fill="currentColor"/>
+                </svg>
+                <p>Concept Art</p>
+            </button>
+        </div>
 
-                <article class="story-block" data-story-id="green-tans">
-                    <h4 class="story-title">2. Green vs. Tans</h4>
-                    <p>A revenge narrative inspired by Stickman.com and Sarges War, following protagonists 'X' and 'Y' armed with WWI/WWII German gear. [See Comic]</p>
-                </article>
+        <div id="writings-content-view" class="content-view">
+            <h3>The Story Archives</h3>
+            <article class="story-block" data-story-id="xegnoid">
+                <h4 class="story-title">1. The Xegnoid Saga (3 Nations, 3 Wars)</h4>
+                <p>A sci-fi fantasy epic featuring four nations (Din Din, Foo Fee Boo, Big Heads, Oronesians) on the Pangea-inspired planet Xegnoid. [See Map]</p>
+            </article>
+            <article class="story-block" data-story-id="green-tans">
+                <h4 class="story-title">2. Green vs. Tans</h4>
+                <p>A revenge narrative inspired by Stickman.com and Sarges War, following protagonists 'X' and 'Y' armed with WWI/WWII German gear. [See Comic]</p>
+            </article>
+            <article class="story-block" data-story-id="gothic-epic">
+                <h4 class="story-title">3. The Gothic Epic</h4>
+                <p>A Medieval Baroque tale where a Royal Knight faces moral conflict after obeying a tyrannical King's order to slaughter rebelling villagers.</p>
+            </article>
+            <article class="story-block" data-story-id="black-mist">
+                <h4 class="story-title">4. Black Mist Saga</h4>
+                <p>An escapist horror/romance narrative dealing with denial and family dysfunction, centered on the Black Mist and the haunted Gothic manor.</p>
+            </article>
+            <article class="story-block" data-story-id="unfinished">
+                <h4 class="story-title">5. The Unfinished Early Adult Story</h4>
+                <p>A High Fantasy/Action mystery involving an escaped slave MC, a corrupt kingdom, Orc pirates, and a blue portal that transports her to the King's throne to slay him.</p>
+            </article>
+            <p class="note">**Note:** For the darker themes and explicit content, please visit our **Deep Web Gallery.**</p>
+        </div>
 
-                <article class="story-block" data-story-id="gothic-epic">
-                    <h4 class="story-title">3. The Gothic Epic</h4>
-                    <p>A Medieval Baroque tale where a Royal Knight faces moral conflict after obeying a tyrannical King's order to slaughter rebelling villagers.</p>
-                </article>
+        <div id="art-content-view" class="content-view is-hidden">
+            <h3>Art & Concepts</h3>
 
-                <article class="story-block" data-story-id="black-mist">
-                    <h4 class="story-title">4. Black Mist Saga</h4>
-                    <p>An escapist horror/romance narrative dealing with denial and family dysfunction, centered on the Black Mist and the haunted Gothic manor.</p>
-                </article>
-
-                <article class="story-block" data-story-id="unfinished">
-                    <h4 class="story-title">5. The Unfinished Early Adult Story</h4>
-                    <p>A High Fantasy/Action mystery involving an escaped slave MC, a corrupt kingdom, Orc pirates, and a blue portal that transports her to the King's throne to slay him.</p>
-                </article>
-
-                <p class="note">**Note:** For the darker themes and explicit content, please visit: 2gg2i4uiuryvisyul3uaglhggovmqbntl5qfa4jhrg6xdouycjrwihad.onion</p>
-            </div>
-
-            <div class="gallery-panel">
-                <h3>Art & Concepts</h3>
-
-                <figure class="art-piece" data-story-id="xegnoid">
-                    <img src="images/z4xk3r07h_yvpz2qyvpz2qyvpz.png" alt="Polished map of Xegnoid territories.">
-                    <figcaption>The final polished map of Xegnoid.</figcaption>
-                </figure>
-
-                <figure class="art-piece" data-story-id="green-tans">
-                    <img src="images/z4xk3r07h_dajw0zdajw0zdajw.png" alt="Comic strip based on the stick-figure Green vs. Tans story.">
-                    <figcaption>The Green vs. Tans comic strip (Example).</figcaption>
-                </figure>
-
-                <figure class="art-piece" data-story-id="gothic-epic">
-                    <img src="images/z4xk3r07h_59zdoj59zdoj59zd.png" alt="Concept art of the heavily armored Royal Knight general.">
-                    <figcaption>Concept: The Royal Knight against the burning village.</figcaption>
-                </figure>
-
-                <figure class="art-piece" data-story-id="black-mist">
-                    <img src="images/z4xk3r07h_laoaxllaoaxllaoa.png" alt="Concept art showing the black mist surrounding the Gothic Manor.">
-                    <figcaption>Visualizing the Black Mist pouring out of the haunted Gothic manor doors.</figcaption>
-                </figure>
-
-                <figure class="art-piece" data-story-id="unfinished">
-                    <img src="images/z4xk3r07h_kkh740kkh740kkh7.png" alt="Concept art of the Gothic Vampiric Pirate Captain.">
-                    <figcaption>Concept: The Gothic, vampiric-looking Pirate Captain.</figcaption>
-                </figure>
-
-            </div>
+            <figure class="art-piece" data-story-id="green-tans">
+                <img src="images/z4xk3r07h_dajw0zdajw0zdajw.png" alt="Comic strip based on the stick-figure Green vs. Tans story.">
+                <figcaption>The Green vs. Tans comic strip (Example).</figcaption>
+            </figure>
+            <figure class="art-piece" data-story-id="xegnoid-planet">
+                <img src="images/z4xk3r07h_ea3qklea3qklea3q.png" alt="Xegnoid planet concept.">
+                <figcaption>Xegnoid Concept Art.</figcaption>
+            </figure>
+            <figure class="art-piece" data-story-id="xegnoid">
+                <img src="images/z4xk3r07h_yvpz2qyvpz2qyvpz.png" alt="Polished map of Xegnoid territories.">
+                <figcaption>The final polished map of Xegnoid.</figcaption>
+            </figure>
+            <figure class="art-piece" data-story-id="gothic-epic">
+                <img src="images/z4xk3r07h_59zdoj59zdoj59zd.png" alt="Concept art of the heavily armored Royal Knight general.">
+                <figcaption>Concept: The Royal Knight against the burning village.</figcaption>
+            </figure>
+            <figure class="art-piece" data-story-id="black-mist">
+                <img src="images/z4xk3r07h_laoaxllaoaxllaoa.png" alt="Concept art showing the black mist surrounding the Gothic Manor.">
+                <figcaption>Visualizing the Black Mist pouring out of the haunted Gothic manor doors.</figcaption>
+            </figure>
+            <figure class="art-piece" data-story-id="unfinished">
+                <img src="images/z4xk3r07h_kkh740kkh740kkh7.png" alt="Concept art of the Gothic Vampiric Pirate Captain.">
+                <figcaption>Concept: The Gothic, vampiric-looking Pirate Captain.</figcaption>
+            </figure>
         </div>
     </section>
 </main>
